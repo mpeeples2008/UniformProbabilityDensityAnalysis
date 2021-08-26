@@ -13,9 +13,14 @@ This procedure using an empirical Bayesian approach to model the population hist
 
 4) We combine the prior and conditional into a posterior estimate which provides an estimate of the probability that a site was occupied in each ceramic modeling period.
 
-5) Finally, we can trim the probability of occuption using the user controlled "cutoff" parameter which defines the minimum probability a modeling period must reach to be included in the date range for that site. 
+5) Finally, we can trim the probability of occuption using the user controlled "cutoff" parameter which defines the minimum probability a modeling period must reach to be included in the date range for that site (see Mills et al. 2018 for an exampl). 
 
-References Cited:
+###References Cited:
+
+Mills, Barbara J., Matthew A. Peeples, Leslie D. Aragon, Benjamin A Bellorado, Jeffery J. Clark, Evan Giomi, and Thomas C. Windes
+2018
+Evaluating Chaco Migration Scenarios Using Dynamic Social Network Analysis. Antiquity 92(364):922-939.
+
 
 Ortman, Scott G.
 2016
