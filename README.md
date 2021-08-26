@@ -20,7 +20,9 @@ This procedure using an empirical Bayesian approach to model the population hist
 ## Repository Contents
 
 UPDA_functions.R - This file contains the primary functions for creating and plotting UPDA population curves.
+
 Example_data.csv - This file contains an example data file formatted to work with this script. The file should include the following columns with labels exactly as they are presented here to reproduce this example. These data are in "long" format such that each row represents a unique combination of site, type, count information. 
+
   * Site - site name or other designation
   * Type - ceramic type name 
   * Count - count of ceramic type for the given site
