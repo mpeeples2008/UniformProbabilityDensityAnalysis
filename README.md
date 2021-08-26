@@ -3,6 +3,8 @@ This is an R implementation of the Uniform Probability Density Analysis approach
 
 See the [cyberSW web platrorm](https://www.cybersw.org) for more.
 
+## Description of Method
+
 This procedure using an empirical Bayesian approach to model the population history of settlements based on their dated ceramic assemblages. Details of this approach are provided by Ortman (2016) but in brief this procedure uses the frequency of ceramic types and the associated date ranges of those types to model the probability that a site was occupied in a given period. The steps are as follows:
 
 1) Modeling periods are first created to respresent the minimum period of overlap between type date ranges. For example, if a site has two ceramic types dated to AD 1000-1150 and 1100-1275 this would result in three modeling periods (AD 1000-1099, 1100-1149, and 1150-1275). Ceramic date assignments can also be rounded to the nearest 1...n years using a user controlled parameter to avoid very short intervals. There is also another user controlled parameter which allows the user to merge periods shorter than a selected length.
@@ -15,7 +17,7 @@ This procedure using an empirical Bayesian approach to model the population hist
 
 5) Finally, we can trim the probability of occuption using the user controlled "cutoff" parameter which defines the minimum probability a modeling period must reach to be included in the date range for that site (see Mills et al. 2018 for an exampl). 
 
-###References Cited:
+## References Cited:
 
 Mills, Barbara J., Matthew A. Peeples, Leslie D. Aragon, Benjamin A Bellorado, Jeffery J. Clark, Evan Giomi, and Thomas C. Windes
 2018
