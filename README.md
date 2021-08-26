@@ -26,9 +26,9 @@ Example_data.csv - This file contains an example data file formatted to work wit
   * Site - site name or other designation
   * Type - ceramic type name 
   * Count - count of ceramic type for the given site
-  * BegDate - the beginning date associated with the ceramic type
-  * EndDate - the end date associated with the ceramic type
-  * Chron - this is a binary variable defined as either 0 or 1 which defines whether or not a type should be considered chronologically sensitive (1 = chronologically sensitive, 0 = not chronologically sensitive).
+  * Begin - the beginning date associated with the ceramic type
+  * End - the end date associated with the ceramic type
+  * Chronology - this is a binary variable defined as either 0 or 1 which defines whether or not a type should be considered chronologically sensitive (1 = chronologically sensitive, 0 = not chronologically sensitive).
 
 ## References Cited:
 
