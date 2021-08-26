@@ -15,7 +15,18 @@ This procedure using an empirical Bayesian approach to model the population hist
 
 4) We combine the prior and conditional into a posterior estimate which provides an estimate of the probability that a site was occupied in each ceramic modeling period.
 
-5) Finally, we can trim the probability of occuption using the user controlled "cutoff" parameter which defines the minimum probability a modeling period must reach to be included in the date range for that site (see Mills et al. 2018 for an exampl). 
+5) Finally, we can trim the probability of occuption using the user controlled "cutoff" parameter which defines the minimum probability a modeling period must reach to be included in the date range for that site (see Mills et al. 2018 for an example). 
+
+## Repository Contents
+
+UPDA_functions.R - This file contains the primary functions for creating and plotting UPDA population curves.
+Example_data.csv - This file contains an example data file formatted to work with this script. The file should include the following columns with labels exactly as they are presented here to reproduce this example. These data are in "long" format such that each row represents a unique combination of site, type, count information. 
+  * Site - site name or other designation
+  * Type - ceramic type name 
+  * Count - count of ceramic type for the given site
+  * BegDate - the beginning date associated with the ceramic type
+  * EndDate - the end date associated with the ceramic type
+  * Chron - this is a binary variable defined as either 0 or 1 which defines whether or not a type should be considered chronologically sensitive (1 = chronologically sensitive, 0 = not chronologically sensitive).
 
 ## References Cited:
 
