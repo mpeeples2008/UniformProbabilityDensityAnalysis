@@ -1,7 +1,7 @@
 # UniformProbabilityDensityAnalysis
 This is an R implementation of the Uniform Probability Density Analysis approach published by Scott Ortman (2016) and also implemented into the cyberSW web platform.
 
-See the [cyberSW web platrorm](https://www.cybersw.org) for more.
+See the [cyberSW web platrorm](https://www.cybersw.org) for more information. Note that this analysis can also be conducted in your browser directly in the cyberSW website for sites selected from that online database.
 
 ## Description of Method
 
