@@ -30,6 +30,8 @@ Example_data.csv - This file contains an example data file formatted to work wit
   * End - the end date associated with the ceramic type
   * Chronology - this is a binary variable defined as either 0 or 1 which defines whether or not a type should be considered chronologically sensitive (1 = chronologically sensitive, 0 = not chronologically sensitive).
 
+The repository also includes a R Markdown file "UPDF_example.Rmd/html" that provides a worked example for running this analysis for either a single site or multiple sites in the same data file.
+
 ## References Cited:
 
 Mills, Barbara J., Matthew A. Peeples, Leslie D. Aragon, Benjamin A Bellorado, Jeffery J. Clark, Evan Giomi, and Thomas C. Windes
