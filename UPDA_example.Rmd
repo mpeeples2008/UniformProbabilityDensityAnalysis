@@ -1,0 +1,114 @@
+---
+title: "Running the Uniform Probability Density Analysis function"
+output:
+  html_document:
+    df_print: paged
+---
+
+This R markdown document provide an example of how to use the uniform probability density analysis function to model site population history using dated cermic objects. For technical details of the approach see the Ortaman 2016 and Mills et al. 2018 articles cited in the repository.
+
+For an example here I am  using data from a series of sites in the San Pedro region of southern Arizona. I provide examples of how this procedure can be implemented for a single site or for a data file containing information on many sites. Note that the scripts used here are designed to take advantage of parallel processing but this procedure may still take several minutes for thousands of sites.
+
+For more information on the sites or data used here, see the [cyberSW web platform](https://www.cybersw.org). 
+
+## Initializing Scripts and libraries
+
+This line will initialize all of the required libraries and define the two functions to be used here. The "updf" function runs the uniform probability density analysis for user provided data and the "updf.plot" plots the output of the updf function.
+
+```{r, message=F, warning=F}
+source('updf_functions.R')
+```
+
+
+## Reading in Data
+
+Next we read in the data file and create a variable containing site names.
+
+```{r}
+
+dat.long <- read.csv('data_SP.csv',header=T)
+sites <- unique(dat.long$Site)
+
+```
+
+## Running the scripts for a single site
+
+Let's first try running the script for a single site. The updf function expects the following user defined input:
+
+  * site - the column containting site name
+  * cer.type = the column containing ceramic type name
+  * ct = the column containing ceramic type counts
+  * start = the column containing start dates for ceramic types
+  * end = the column containing end dates for ceramic types
+  * chron = the column containing the 0/1 variable defining types as chronologically sensitive (1) or not (0).
+  
+The function also needs a few additional user supplied parameters
+  * interval - the rounding interval to be used to define ceramic modeling periods
+  * min.period - the minimum length of a period to include (periods shorter than this interval will be merged with the largest adjacent period).
+  * cutoff - the minimum probabiilty of occupation required to set the beginning and ending date for the site.
+  
+The next chunk of code first extracts a single site from the data we read in above and then runs the updf code for that site and displays the extensive results. The output includes the site name, the prior probabilites by period, the posterior probabilities by period, the conditional probabilities by period, the period designations, the ceramic sample size, and the estimated period of occupation given the cutoff provided.
+  
+```{r, warning=F, message=F}
+ex1.site <- dat.long[which(dat.long$Site=='Davis Ranch Site'),]
+
+ex1 <- updf(site=ex1.site$Site,
+            cer.type=ex1.site$Type,
+            ct=ex1.site$Count,
+            start=ex1.site$Begin,
+            end=ex1.site$End,
+            chron=ex1.site$Chronology,
+            interval=25,
+            min.period=10,
+            cutoff=0.1)
+
+ex1
+
+```
+
+## Plotting the results
+
+Since the plotting function was designed with the updf output in mind, plotting is just a single line of code. In the output, the red line represents the uniform prior probability estimates, the blue dotted line represents the conditional, and the filled gray area representes the posterior probability estiamtes. The black dotted lines represent the estimated site beginning and ending dates based on the probability cutoff. Note here that there are low probability intervals both before and after the 1300-1450 interval between the dotted lines in the posterior probability estimates. These may represent smaller distinct components, heirloomed vessels, later revisitation, or other processes. The dotted lines are not meant to suggest we should exclude those intervals from consideration but instead are meant to highlight the most likely primary occupation interval represented by the ceramic assemblage provided. 
+
+For this function, you just need to provide an updf object, and select a beginning date (beg.date), ending date (end.date), and labelling interval (plot.interval) to define the years that will be shown on the x-axis.
+
+```{r}
+  updf.plot(ex1,
+            beg.date=500,
+            end.date=1900,
+            plot.interval=50)
+
+```
+
+## Running the analysis for multiple sites
+
+One simple way to run these analyses and generate output for multiple sites is to use loops and lists. In the following chunk of code we define a list and loop over all sites included in our data file to run this analysis site by site. Here we limit ourselves to the first 3 sites in the dataset but this could easily be applied to all. Also, the output could be wrapped in a pdf() function to output plots directly to a file. 
+
+```{r}
+
+out.list <- list()
+
+for (i in 1:3) { # 3 could be replaced with length(sites) to plot and analyze all included sites.
+  site.qv <- dat.long[which(dat.long$Site==sites[i]),]
+  
+  updf.out <- updf(site=site.qv$Site,
+                   cer.type=site.qv$Type,
+                   ct=site.qv$Count,
+                   start=site.qv$Begin,
+                   end=site.qv$End,
+                   chron=site.qv$Chronology,
+                   interval=25,
+                   cutoff=0.1,
+                   min.period=10)
+
+  out.list[[i]] <- updf.out
+
+  updf.plot(updf.out,
+          beg.date=200,
+          end.date=1900,
+          plot.interval=50)
+}
+
+out.list[[1]]
+```
+
