@@ -72,4 +72,4 @@ posterior_by_interval <- function(out.list, interval = 25) {
 # Create the requested table immediately when this file is sourced after the
 # analysis loop. The function can also be called directly with another UPDF
 # result list or a different interval length.
-posterior.output <- posterior_by_interval(out.list)
+posterior.output <- posterior_by_interval(out.list, interval=25)
