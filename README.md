@@ -21,6 +21,8 @@ This procedure using an empirical Bayesian approach to model the population hist
 
 UPDA_functions.R - This file contains the primary functions for creating and plotting UPDA population curves.
 
+posterior_output.R - This helper converts the `out.list` produced when UPDA is run for multiple sites into a single, comparable table. After creating `out.list`, run `source("posterior_output.R")` to create `posterior.output`. The table has one row per site and one column for every 25-year interval between the earliest and latest dates represented across all sites. If an original UPDA modeling period overlaps more than one 25-year interval, its posterior probability is apportioned across those intervals by the amount of temporal overlap.
+
 Example_data.csv - This file contains an example data file formatted to work with this script. The file should include the following columns with labels exactly as they are presented here to reproduce this example. These data are in "long" format such that each row represents a unique combination of site, type, count information. 
 
   * Site - site name or other designation
