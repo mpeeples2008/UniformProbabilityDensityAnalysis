@@ -1,11 +1,11 @@
 # UniformProbabilityDensityAnalysis
 This is an R implementation of the Uniform Probability Density Analysis approach published by Scott Ortman (2016) and also implemented into the cyberSW web platform.
 
-See the [cyberSW web platrorm](https://www.cybersw.org) for more.
+See the [cyberSW web platrorm](https://www.cybersw.org) for more information. Note that this analysis can also be conducted in your browser directly in the cyberSW website for sites selected from that online database.
 
 ## Description of Method
 
-This procedure using an empirical Bayesian approach to model the population history of settlements based on their dated ceramic assemblages. Details of this approach are provided by Ortman (2016) but in brief this procedure uses the frequency of ceramic types and the associated date ranges of those types to model the probability that a site was occupied in a given period. The steps are as follows:
+This procedure uses an empirical Bayesian approach to model the population history of settlements based on their dated ceramic assemblages. Details of this approach are provided by Ortman (2016) but in brief this procedure uses the frequency of ceramic types and the associated date ranges of those types to model the probability that a site was occupied in a given period. The steps are as follows:
 
 1) Modeling periods are first created to respresent the minimum period of overlap between type date ranges. For example, if a site has two ceramic types dated to AD 1000-1150 and 1100-1275 this would result in three modeling periods (AD 1000-1099, 1100-1149, and 1150-1275). Ceramic date assignments can also be rounded to the nearest 1...n years using a user controlled parameter to avoid very short intervals. There is also another user controlled parameter which allows the user to merge periods shorter than a selected length.
 
@@ -31,6 +31,8 @@ Example_data.csv - This file contains an example data file formatted to work wit
   * Begin - the beginning date associated with the ceramic type
   * End - the end date associated with the ceramic type
   * Chronology - this is a binary variable defined as either 0 or 1 which defines whether or not a type should be considered chronologically sensitive (1 = chronologically sensitive, 0 = not chronologically sensitive).
+
+The repository also includes a R Markdown file "UPDF_example.Rmd/html" that provides a worked example for running this analysis for either a single site or multiple sites in the same data file.
 
 ## References Cited:
 
